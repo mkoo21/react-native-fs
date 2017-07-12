@@ -103,10 +103,10 @@ public class Downloader extends AsyncTask<DownloadParams, int[], DownloadResult>
 
       mParam.onDownloadBegin.onDownloadBegin(statusCode, lengthOfFile, headersFlat);
 
-      input = new BufferedInputStream(connection.getInputStream(), 8 * 1024);
+      input = new BufferedInputStream(connection.getInputStream(), 64 * 1024);
       output = new FileOutputStream(param.dest);
 
-      byte data[] = new byte[8 * 1024];
+      byte data[] = new byte[64 * 1024];
       int total = 0;
       int count;
       double lastProgressValue = 0;
